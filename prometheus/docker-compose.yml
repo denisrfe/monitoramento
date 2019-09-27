@@ -1,0 +1,24 @@
+version: '2'
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: always
+    volumes:
+    - /home/mgeweb/monitoring/prometheus:/etc/prometheus/
+    ports:
+    - 9090:9090
+    extra_hosts:
+            - "node_rancher_01:10.42.63.236"
+            - "node_rancher_02:10.42.118.24"
+            - "node_rancher_03:10.42.78.23"
+            - "node_rancher_04:10.42.164.100"
+            - "node_rancher_05:10.42.155.19"
+            - "node_rancher_06:10.42.210.137"
+            - "node_rancher_07:10.42.242.197"
+            - "node_rancher_08:10.42.181.149"
+            - "node_rancher_09:10.42.14.46"
+            - "node_rancher_10:10.42.180.54"
+            - "node_rancher_11:10.42.7.210"
+            - "node_rancher_12:10.42.8.68"
+            - "node_rancher_13:10.42.76.12"
