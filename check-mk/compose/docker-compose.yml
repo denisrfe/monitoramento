@@ -1,0 +1,11 @@
+version: '2'
+services:
+  check_mk:
+    image: checkmk/check-mk-raw:1.6.0-latest
+    container_name: check_mk
+    restart: always
+    volumes:
+     - /var/lib/docker/volumes/data-checkmk:/omd/sites
+    ports:
+      - "8081:5000"
+
