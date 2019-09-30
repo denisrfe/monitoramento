@@ -53,11 +53,11 @@
   "gnetId": 893,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1569615508105,
+  "iteration": 1569843414888,
   "links": [],
   "panels": [
     {
-      "content": "### Host 1\n10.42.83.225",
+      "content": "### Node 01\nm5.xlarge\n",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -432,7 +432,7 @@
       "type": "text"
     },
     {
-      "content": "### Host 8\n10.42.3.8",
+      "content": "### Node 08\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -785,7 +785,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Host 2\n10.42.243.95",
+      "content": "### Node 02\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -1154,7 +1154,7 @@
       "type": "text"
     },
     {
-      "content": "### Host 9\n10.42.11.219",
+      "content": "### Node 09\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -1510,7 +1510,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Host 3\n10.42.43.132",
+      "content": "### Node 03\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -1884,7 +1884,7 @@
       "type": "text"
     },
     {
-      "content": "### Host 10\n10.42.217.108",
+      "content": "### Node 10\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -2237,7 +2237,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Host 4\n10.42.167.63",
+      "content": "### Node 04\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -2607,7 +2607,7 @@
       "type": "text"
     },
     {
-      "content": "### Host 11\n10.42.172.199",
+      "content": "### Node 11\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -2964,7 +2964,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Host 5\n10.42.80.146",
+      "content": "### Node 05\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -3338,7 +3338,7 @@
       "type": "text"
     },
     {
-      "content": "### Host 12\n10.42.237.236\n\nr4-xlarge",
+      "content": "### Node 12\nr4-xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -3694,7 +3694,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Host 6\n10.42.104.149",
+      "content": "### Node 06\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -4063,7 +4063,7 @@
       "type": "text"
     },
     {
-      "content": "### Host 13\n10.42.92.0\n\nr4-xlarge",
+      "content": "### Node 13\nr4-xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -4420,7 +4420,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Host 7\n10.42.208.231",
+      "content": "### Node 07\nm5.xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -4961,5 +4961,5 @@
   "timezone": "browser",
   "title": "Console Jiva Cloud Clientes (HOSTS)",
   "uid": "ZZcdHl9mk",
-  "version": 1
+  "version": 4
 }

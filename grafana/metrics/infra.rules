@@ -1,0 +1,11 @@
+CPU LOAD:
+node_load1{instance="node_rancher_01:9100"} / count by(job, instance)(count by(job, instance, cpu)(node_cpu{instance="node_rancher_01:9100"}))
+
+MEMORY:
+((node_memory_MemTotal{instance="node_rancher_01:9100"} - node_memory_MemAvailable{instance="node_rancher_01:9100"}) / node_memory_MemTotal{instance="node_rancher_01:9100"}) * 100
+
+DISK SPACE:
+min((node_filesystem_size{fstype=~"xfs|ext4",instance="node_rancher_01:9100"} - node_filesystem_free{fstype=~"xfs|ext4",instance="node_rancher_01:9100"} )/ node_filesystem_size{fstype=~"xfs|ext4",instance="node_rancher_01:9100"})
+
+SWAP USED:
+(node_memory_SwapTotal{instance='node_rancher_01:9100'} - node_memory_SwapFree{instance='node_rancher_01:9100'})
