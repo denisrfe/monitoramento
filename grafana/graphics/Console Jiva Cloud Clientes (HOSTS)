@@ -1,40 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "5.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "text",
-      "name": "Text",
-      "version": "5.0.0"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -52,12 +16,12 @@
   "editable": true,
   "gnetId": 893,
   "graphTooltip": 1,
-  "id": null,
-  "iteration": 1569843414888,
+  "id": 1,
+  "iteration": 1569869707764,
   "links": [],
   "panels": [
     {
-      "content": "### Node 01\nm5.xlarge\n",
+      "content": "### Node 01\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -67,6 +31,7 @@
       "id": 57,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "transparent": true,
       "type": "text"
@@ -80,7 +45,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -113,6 +78,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -163,7 +129,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -198,6 +164,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -249,7 +216,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -284,6 +251,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -335,7 +303,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -370,6 +338,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -423,8 +392,9 @@
       },
       "id": 94,
       "links": [],
-      "minSpan": 17,
+      "maxPerRow": 1,
       "mode": "markdown",
+      "options": {},
       "repeat": null,
       "repeatDirection": "h",
       "title": "",
@@ -432,7 +402,7 @@
       "type": "text"
     },
     {
-      "content": "### Node 08\nm5.xlarge",
+      "content": "### Node 08\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -442,6 +412,7 @@
       "id": 51,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "type": "text"
     },
@@ -454,7 +425,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -487,6 +458,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -516,7 +488,6 @@
       ],
       "thresholds": "0.8,0.9",
       "title": "CPU Load",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -537,7 +508,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -572,6 +543,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -622,7 +594,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -657,6 +629,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -707,7 +680,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -742,6 +715,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -785,7 +759,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Node 02\nm5.xlarge",
+      "content": "### Node 02\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -795,6 +769,7 @@
       "id": 49,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "type": "text"
     },
@@ -807,7 +782,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -840,6 +815,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -869,7 +845,6 @@
       ],
       "thresholds": "0.8,0.9",
       "title": "CPU Load",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -890,7 +865,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -925,6 +900,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -974,7 +950,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -1009,6 +985,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1059,7 +1036,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -1094,6 +1071,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1146,15 +1124,16 @@
       },
       "id": 95,
       "links": [],
-      "minSpan": 17,
+      "maxPerRow": 1,
       "mode": "markdown",
+      "options": {},
       "repeatDirection": "h",
       "title": "",
       "transparent": true,
       "type": "text"
     },
     {
-      "content": "### Node 09\nm5.xlarge",
+      "content": "### Node 09\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -1164,6 +1143,7 @@
       "id": 53,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "transparent": true,
       "type": "text"
@@ -1177,7 +1157,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -1210,6 +1190,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1260,7 +1241,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -1295,6 +1276,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1345,7 +1327,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -1380,6 +1362,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1431,7 +1414,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -1466,6 +1449,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1510,7 +1494,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Node 03\nm5.xlarge",
+      "content": "### Node 03\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -1520,6 +1504,7 @@
       "id": 41,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "transparent": true,
       "type": "text"
@@ -1533,7 +1518,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -1566,6 +1551,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1616,7 +1602,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -1651,6 +1637,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1702,7 +1689,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -1737,6 +1724,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1788,7 +1776,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -1823,6 +1811,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1876,15 +1865,16 @@
       },
       "id": 96,
       "links": [],
-      "minSpan": 17,
+      "maxPerRow": 1,
       "mode": "markdown",
+      "options": {},
       "repeatDirection": "h",
       "title": "",
       "transparent": true,
       "type": "text"
     },
     {
-      "content": "### Node 10\nm5.xlarge",
+      "content": "### Node 10\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -1894,6 +1884,7 @@
       "id": 47,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "type": "text"
     },
@@ -1906,7 +1897,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -1939,6 +1930,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1968,7 +1960,6 @@
       ],
       "thresholds": "0.8,0.9",
       "title": "CPU Load",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -1989,7 +1980,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -2024,6 +2015,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2074,7 +2066,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -2109,6 +2101,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2159,7 +2152,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -2194,6 +2187,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2237,7 +2231,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Node 04\nm5.xlarge",
+      "content": "### Node 04\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -2247,6 +2241,7 @@
       "id": 55,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "type": "text"
     },
@@ -2259,7 +2254,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -2292,6 +2287,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2321,7 +2317,6 @@
       ],
       "thresholds": "0.8,0.9",
       "title": "CPU Load",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -2342,7 +2337,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -2377,6 +2372,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2427,7 +2423,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -2462,6 +2458,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2512,7 +2509,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -2547,6 +2544,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2599,15 +2597,16 @@
       },
       "id": 97,
       "links": [],
-      "minSpan": 17,
+      "maxPerRow": 1,
       "mode": "markdown",
+      "options": {},
       "repeatDirection": "h",
       "title": "",
       "transparent": true,
       "type": "text"
     },
     {
-      "content": "### Node 11\nm5.xlarge",
+      "content": "### Node 11\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -2617,6 +2616,7 @@
       "id": 89,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "transparent": true,
       "type": "text"
@@ -2630,7 +2630,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -2663,6 +2663,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2713,7 +2714,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -2748,6 +2749,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2799,7 +2801,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -2834,6 +2836,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2885,7 +2888,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -2920,6 +2923,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2964,7 +2968,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Node 05\nm5.xlarge",
+      "content": "### Node 05\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -2974,6 +2978,7 @@
       "id": 45,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "transparent": true,
       "type": "text"
@@ -2987,7 +2992,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -3020,6 +3025,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3070,7 +3076,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -3105,6 +3111,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3156,7 +3163,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -3191,6 +3198,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3242,7 +3250,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -3277,6 +3285,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3330,8 +3339,9 @@
       },
       "id": 98,
       "links": [],
-      "minSpan": 17,
+      "maxPerRow": 1,
       "mode": "markdown",
+      "options": {},
       "repeatDirection": "h",
       "title": "",
       "transparent": true,
@@ -3348,8 +3358,8 @@
       "id": 100,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
-      "transparent": false,
       "type": "text"
     },
     {
@@ -3361,7 +3371,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -3394,6 +3404,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3423,7 +3434,6 @@
       ],
       "thresholds": "0.8,0.9",
       "title": "CPU Load",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -3444,7 +3454,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -3479,6 +3489,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3509,7 +3520,6 @@
       ],
       "thresholds": "70, 90",
       "title": "Memory",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -3530,7 +3540,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -3565,6 +3575,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3595,7 +3606,6 @@
       ],
       "thresholds": "0.75, 0.90",
       "title": "Disk space",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -3616,7 +3626,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -3651,6 +3661,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3694,7 +3705,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Node 06\nm5.xlarge",
+      "content": "### Node 06\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -3704,6 +3715,7 @@
       "id": 42,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "type": "text"
     },
@@ -3716,7 +3728,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -3749,6 +3761,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3777,7 +3790,6 @@
       ],
       "thresholds": "0.8,0.9",
       "title": "CPU Load",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -3798,7 +3810,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -3833,6 +3845,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3883,7 +3896,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -3918,6 +3931,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3968,7 +3982,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -4003,6 +4017,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4055,8 +4070,9 @@
       },
       "id": 99,
       "links": [],
-      "minSpan": 17,
+      "maxPerRow": 1,
       "mode": "markdown",
+      "options": {},
       "repeatDirection": "h",
       "title": "",
       "transparent": true,
@@ -4073,6 +4089,7 @@
       "id": 105,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "transparent": true,
       "type": "text"
@@ -4086,7 +4103,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -4119,6 +4136,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4169,7 +4187,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -4204,6 +4222,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4255,7 +4274,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -4290,6 +4309,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4341,7 +4361,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -4376,6 +4396,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4420,7 +4441,7 @@
       "valueName": "current"
     },
     {
-      "content": "### Node 07\nm5.xlarge",
+      "content": "### Node 07\nm5.2xlarge",
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -4430,6 +4451,7 @@
       "id": 43,
       "links": [],
       "mode": "markdown",
+      "options": {},
       "title": "",
       "transparent": true,
       "type": "text"
@@ -4443,7 +4465,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "format": "percentunit",
       "gauge": {
@@ -4476,6 +4498,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4526,7 +4549,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -4561,6 +4584,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4612,7 +4636,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 1,
       "editable": true,
       "error": false,
@@ -4647,6 +4671,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4698,7 +4723,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "editable": true,
       "error": false,
@@ -4733,6 +4758,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4777,8 +4803,8 @@
       "valueName": "current"
     }
   ],
-  "refresh": false,
-  "schemaVersion": 16,
+  "refresh": "10s",
+  "schemaVersion": 19,
   "style": "dark",
   "tags": [
     "Containers",
@@ -4789,8 +4815,12 @@
     "list": [
       {
         "allValue": ".+",
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": true,
         "label": "Container Group",
@@ -4800,6 +4830,7 @@
         "query": "label_values(container_group)",
         "refresh": 1,
         "regex": "/.*/",
+        "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": null,
         "tags": [],
@@ -4905,12 +4936,18 @@
         ],
         "query": "30s,1m,2m,3m,5m,7m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
         "refresh": 2,
+        "skipUrlSync": false,
         "type": "interval"
       },
       {
         "allValue": null,
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
+        "current": {
+          "isNone": true,
+          "text": "None",
+          "value": ""
+        },
+        "datasource": "Prometheus",
+        "definition": "",
         "hide": 2,
         "includeAll": false,
         "label": "instance",
@@ -4920,6 +4957,7 @@
         "query": "label_values(container_cpu_usage_seconds_total {container_label_io_rancher_container_ip=~\"$server.*\"}, instance)",
         "refresh": 1,
         "regex": "/([^:]+):.*/",
+        "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
@@ -4961,5 +4999,5 @@
   "timezone": "browser",
   "title": "Console Jiva Cloud Clientes (HOSTS)",
   "uid": "ZZcdHl9mk",
-  "version": 4
+  "version": 2
 }

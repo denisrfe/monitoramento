@@ -1,40 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": "5.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": "5.0.0"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -54,8 +18,8 @@
   "editable": true,
   "gnetId": 22,
   "graphTooltip": 1,
-  "id": null,
-  "iteration": 1569843645608,
+  "id": 5,
+  "iteration": 1569870131547,
   "links": [],
   "panels": [
     {
@@ -63,10 +27,11 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {
         "threshold1Color": "rgba(216, 200, 27, 0.27)",
         "threshold2Color": "rgba(234, 112, 112, 0.22)"
@@ -96,6 +61,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -106,10 +74,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "100 - (avg by (cpu) (irate(node_cpu{mode=\"idle\", instance=\"$instance:$port\"}[5m])) * 100)",
+          "expr": "100 - (avg by (cpu) (irate(node_cpu{mode=\"idle\", instance=\"node_rancher_01:9100\"}[5m])) * 100)",
           "format": "time_series",
           "hide": false,
-          "intervalFactor": 10,
+          "intervalFactor": 2,
           "legendFormat": "{{cpu}}",
           "refId": "A",
           "step": 50
@@ -117,6 +85,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Idle CPU",
       "tooltip": {
@@ -147,17 +116,22 @@
           "logBase": 1,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {
         "threshold1Color": "rgba(216, 200, 27, 0.27)",
         "threshold2Color": "rgba(234, 112, 112, 0.22)"
@@ -187,6 +161,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -197,7 +174,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_load1{instance=\"$instance:$port\"}",
+          "expr": "node_load1{instance=\"$instance:9100\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 4,
@@ -207,8 +184,9 @@
           "target": ""
         },
         {
-          "expr": "node_load5{instance=\"$instance:$port\"}",
+          "expr": "node_load5{instance=\"$instance:9100\"}",
           "format": "time_series",
+          "hide": false,
           "intervalFactor": 4,
           "legendFormat": "load 5m",
           "refId": "B",
@@ -216,8 +194,9 @@
           "target": ""
         },
         {
-          "expr": "node_load15{instance=\"$instance:$port\"}",
+          "expr": "node_load15{instance=\"$instance:9100\"}",
           "format": "time_series",
+          "hide": false,
           "intervalFactor": 4,
           "legendFormat": "load 15m",
           "refId": "C",
@@ -227,6 +206,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "System Load",
       "tooltip": {
@@ -254,17 +234,22 @@
           "logBase": 1,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {
         "threshold1Color": "rgba(216, 200, 27, 0.27)",
         "threshold2Color": "rgba(234, 112, 112, 0.22)"
@@ -294,6 +279,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -309,7 +297,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_memory_MemTotal{instance=\"$instance:$port\"} - node_memory_MemFree{instance=\"$instance:$port\"} - node_memory_Buffers{instance=\"$instance:$port\"} - node_memory_Cached{instance=\"$instance:$port\"}",
+          "expr": "node_memory_MemTotal{instance=\"$instance:9100\"} - node_memory_MemFree{instance=\"$instance:9100\"} - node_memory_Buffers{instance=\"$instance:9100\"} - node_memory_Cached{instance=\"$instance:9100\"}",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -320,7 +308,7 @@
           "step": 10
         },
         {
-          "expr": "node_memory_Buffers{instance=\"$instance:$port\"}",
+          "expr": "node_memory_Buffers{instance=\"$instance:9100\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -330,7 +318,7 @@
           "step": 10
         },
         {
-          "expr": "node_memory_Cached{instance=\"$instance:$port\"}",
+          "expr": "node_memory_Cached{instance=\"$instance:9100\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "memory cached",
@@ -339,7 +327,7 @@
           "step": 10
         },
         {
-          "expr": "node_memory_MemFree{instance=\"$instance:$port\"}",
+          "expr": "node_memory_MemFree{instance=\"$instance:9100\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "memory free",
@@ -348,24 +336,25 @@
           "step": 10
         },
         {
-          "expr": "node_memory_SwapTotal{instance=\"$instance:$port\"} - node_memory_SwapFree{instance=\"$instance:$port\"}",
+          "expr": "node_memory_SwapTotal{instance=\"$instance:9100\"} - node_memory_SwapFree{instance=\"$instance:9100\"}",
           "format": "time_series",
           "hide": false,
-          "intervalFactor": 1,
+          "intervalFactor": 2,
           "legendFormat": "memory swap used",
           "refId": "A"
         },
         {
-          "expr": "node_memory_SwapCached{instance=\"$instance:$port\"}",
+          "expr": "node_memory_SwapCached{instance=\"$instance:9100\"}",
           "format": "time_series",
           "hide": false,
-          "intervalFactor": 1,
-          "legendFormat": "memoryswapcached",
+          "intervalFactor": 2,
+          "legendFormat": "memory swap cached",
           "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Memory Usage",
       "tooltip": {
@@ -394,7 +383,11 @@
           "logBase": 1,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "cacheTimeout": null,
@@ -405,7 +398,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "editable": true,
       "format": "percent",
       "gauge": {
@@ -439,6 +432,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -459,7 +453,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "((node_memory_MemTotal{instance=\"$instance:$port\"} - node_memory_MemFree{instance=\"$instance:$port\"}  - node_memory_Buffers{instance=\"$instance:$port\"} - node_memory_Cached{instance=\"$instance:$port\"}) / node_memory_MemTotal{instance=\"$instance:$port\"}) * 100",
+          "expr": "((node_memory_MemTotal{instance=\"$instance:9100\"} - node_memory_MemFree{instance=\"$instance:9100\"}  - node_memory_Buffers{instance=\"$instance:9100\"} - node_memory_Cached{instance=\"$instance:9100\"}) / node_memory_MemTotal{instance=\"$instance:9100\"}) * 100",
           "format": "time_series",
           "intervalFactor": 2,
           "refId": "A",
@@ -469,7 +463,6 @@
       ],
       "thresholds": "80, 90",
       "title": "Memory Usage",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -486,10 +479,11 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {
         "threshold1Color": "rgba(216, 200, 27, 0.27)",
         "threshold2Color": "rgba(234, 112, 112, 0.22)"
@@ -519,6 +513,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -542,7 +539,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (instance) (rate(node_disk_bytes_read{instance=\"$instance:$port\"}[2m]))",
+          "expr": "sum by (instance) (rate(node_disk_bytes_read{instance=\"$instance:9100\"}[2m]))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 4,
@@ -552,24 +549,17 @@
           "target": ""
         },
         {
-          "expr": "sum by (instance) (rate(node_disk_bytes_written{instance=\"$instance:$port\"}[2m]))",
+          "expr": "sum by (instance) (rate(node_disk_bytes_written{instance=\"$instance:9100\"}[2m]))",
           "format": "time_series",
           "intervalFactor": 4,
           "legendFormat": "written",
           "refId": "B",
           "step": 20
-        },
-        {
-          "expr": "sum by (instance) (rate(node_disk_io_time_ms{instance=\"$instance:$port\"}[2m]))",
-          "format": "time_series",
-          "intervalFactor": 4,
-          "legendFormat": "io time",
-          "refId": "C",
-          "step": 20
         }
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Disk I/O",
       "tooltip": {
@@ -597,7 +587,11 @@
           "logBase": 1,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "cacheTimeout": null,
@@ -608,7 +602,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "editable": true,
       "format": "percentunit",
       "gauge": {
@@ -642,6 +636,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -662,7 +657,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(sum(node_filesystem_size{device!=\"rootfs\",instance=\"$instance:$port\"}) - sum(node_filesystem_free{device!=\"rootfs\",instance=\"$instance:$port\"})) / sum(node_filesystem_size{device!=\"rootfs\",instance=\"$instance:$port\"})",
+          "expr": "(sum(node_filesystem_size{device!=\"rootfs\",instance=\"$instance:9100\"}) - sum(node_filesystem_free{device!=\"rootfs\",instance=\"$instance:9100\"})) / sum(node_filesystem_size{device!=\"rootfs\",instance=\"$instance:9100\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "refId": "A",
@@ -672,7 +667,6 @@
       ],
       "thresholds": "0.75, 0.9",
       "title": "Disk Space Usage",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -683,206 +677,22 @@
         }
       ],
       "valueName": "current"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "grid": {
-        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 21
-      },
-      "id": 8,
-      "isNew": false,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "transmitted",
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rate(node_network_receive_bytes{instance=\"$instance:$port\",device!~\"lo\"}[5m])",
-          "format": "time_series",
-          "hide": false,
-          "intervalFactor": 2,
-          "legendFormat": "{{device}}",
-          "refId": "A",
-          "step": 10,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Network Received",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "show": true
-        }
-      ]
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "grid": {
-        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 21
-      },
-      "id": 10,
-      "isNew": false,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "transmitted",
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rate(node_network_transmit_bytes{instance=\"$instance:$port\",device!~\"lo\"}[5m])",
-          "format": "time_series",
-          "hide": false,
-          "intervalFactor": 2,
-          "legendFormat": "{{device}}",
-          "refId": "B",
-          "step": 10,
-          "target": ""
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Network Transmitted",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "format": "bytes",
-          "logBase": 1,
-          "show": true
-        }
-      ]
     }
   ],
-  "refresh": false,
-  "schemaVersion": 16,
+  "refresh": "",
+  "schemaVersion": 19,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "allValue": "9100",
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
+        "current": {
+          "text": "node_rancher_01",
+          "value": "node_rancher_01"
+        },
+        "datasource": "Prometheus",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Node",
@@ -892,33 +702,13 @@
         "query": "label_values(node_boot_time, instance)",
         "refresh": 1,
         "regex": "([^:]+):.*",
+        "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
-      },
-      {
-        "allValue": null,
-        "current": {
-          "text": "9100",
-          "value": "9100"
-        },
-        "hide": 0,
-        "includeAll": false,
-        "label": null,
-        "multi": false,
-        "name": "port",
-        "options": [
-          {
-            "selected": true,
-            "text": "9100",
-            "value": "9100"
-          }
-        ],
-        "query": "9100",
-        "type": "custom"
       }
     ]
   },
@@ -954,5 +744,5 @@
   "timezone": "browser",
   "title": "Nodes",
   "uid": "Z_jA2itZz",
-  "version": 25
+  "version": 10
 }
