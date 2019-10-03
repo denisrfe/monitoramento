@@ -20,12 +20,16 @@ rule_files:
 # Here it's Prometheus itself.
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: 'prometheus'
-    static_configs:
-    - targets: ['localhost:9090']
+#  - job_name: 'prometheus'
+#    static_configs:
+#    - targets: ['localhost:9090']
 
-  # Node-Exporter from rancher nodes 
+  # Node-Exporter from rancher nodes
   - job_name: 'Node Exporters'
     static_configs:
-    - targets: ['node_rancher_01:9100', 'node_rancher_02:9100', 'node_rancher_03:9100', 'node_rancher_04:9100', 'node_rancher_05:9100', 'node_rancher_06:9100', 'node_rancher_07:9100', 'node_rancher_08:9100', 'node_rancher_09:9100', 'node_rancher_10:9100', 'node_rancher_11:9100', 'node_rancher_12:9100', 'node_rancher_10:9100']
+    - targets: ['node_rancher_01:9100', 'node_rancher_02:9100', 'node_rancher_03:9100', 'node_rancher_04:9100', 'node_rancher_05:9100', 'node_rancher_06:9100', 'node_rancher_07:9100', 'node_rancher_08:9100', 'node_rancher_09:9100', 'node_rancher_10:9100', 'node_rancher_11:9100', 'node_rancher_12:9100', 'node_rancher_13:9100', 'node_rancher_14:9100']
 
+  # cAdvisor from rancher nodes
+  - job_name: 'cAdvisor'
+    static_configs:
+    - targets: ['node_rancher_01:9108', 'node_rancher_02:9108', 'node_rancher_03:9108', 'node_rancher_04:9108', 'node_rancher_05:9108', 'node_rancher_06:9108', 'node_rancher_07:9108', 'node_rancher_08:9108', 'node_rancher_09:9108', 'node_rancher_10:9108', 'node_rancher_11:9108', 'node_rancher_12:9108', 'node_rancher_13:9108', 'node_rancher_14:9108']

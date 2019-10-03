@@ -22,3 +22,4 @@ services:
             - "node_rancher_11:10.42.7.210"
             - "node_rancher_12:10.42.8.68"
             - "node_rancher_13:10.42.76.12"
+            - "node_rancher_14:172.31.15.116"
