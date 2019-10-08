@@ -1,0 +1,6 @@
+#!/bin/bash 
+
+if type who >/dev/null; then
+    echo "<<<logins>>>"
+    who | wc -l
+fi

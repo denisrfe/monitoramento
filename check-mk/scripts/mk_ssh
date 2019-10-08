@@ -1,0 +1,6 @@
+SSHD_CONFIG=/etc/ssh/sshd_config
+
+if [ -f $SSHD_CONFIG ] ; then
+    echo "<<<sshd_config>>>"
+    sed -e '/^#/d' -e '/^\s*$/d' -e 's/\s\+/ /g' $SSHD_CONFIG
+fi
