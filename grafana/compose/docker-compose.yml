@@ -1,0 +1,27 @@
+version: '2'
+volumes:
+  grafana-data:
+    external: true
+    driver: local
+services:
+  grafana:
+    image: jivagestaoempresarial/grafana:6.3.6
+    volumes:
+    - grafana_data:/var/lib/grafana
+    tty: true
+    volumes_from:
+    - graf-db
+    ports:
+    - 3000:3000/tcp
+    user: '472'
+    labels:
+      io.rancher.sidekicks: graf-db
+  graf-db:
+    image: infinityworks/graf-db:11
+    network_mode: none
+    volumes:
+    - grafana-data:/var/lib/grafana/
+    tty: true
+    command:
+    - cat
+
