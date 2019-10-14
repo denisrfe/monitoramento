@@ -1,0 +1,8 @@
+- alert: ElasticHeapUsageWarning
+  expr: (elasticsearch_jvm_memory_used_bytes{area="heap"} / elasticsearch_jvm_memory_max_bytes{area="heap"}) * 100 > 80
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "Elastic Heap Usage warning (instance {{ $labels.instance }})"
+    description: "The heap usage is over 80% for 5m\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

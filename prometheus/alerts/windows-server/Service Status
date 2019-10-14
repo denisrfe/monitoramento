@@ -1,0 +1,8 @@
+- alert: ServiceStatus
+  expr: wmi_service_status{status="ok"} != 1
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Service Status (instance {{ $labels.instance }})"
+    description: "Windows Service state is not OK\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

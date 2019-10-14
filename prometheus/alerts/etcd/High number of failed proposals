@@ -1,0 +1,8 @@
+- alert: HighNumberOfFailedProposals
+  expr: increase(etcd_server_proposals_failed_total[1h]) > 5
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "High number of failed proposals (instance {{ $labels.instance }})"
+    description: "Etcd server got more than 5 failed proposals past hour\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

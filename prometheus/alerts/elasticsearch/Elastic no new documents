@@ -1,0 +1,8 @@
+- alert: ElasticNoNewDocuments
+  expr: rate(elasticsearch_indices_docs{es_master_node="false"}[10m]) < 1
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "Elastic no new documents (instance {{ $labels.instance }})"
+    description: "No new documents for 10 min!\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

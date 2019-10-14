@@ -1,0 +1,8 @@
+- alert: MemoryUsage
+  expr: 100*(wmi_os_physical_memory_free_bytes) / wmi_cs_physical_memory_bytes > 90
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "Memory Usage (instance {{ $labels.instance }})"
+    description: "Memory Usage is more than 90%\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

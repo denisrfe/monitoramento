@@ -1,0 +1,8 @@
+- alert: ElasticHeapUsageTooHigh
+  expr: (elasticsearch_jvm_memory_used_bytes{area="heap"} / elasticsearch_jvm_memory_max_bytes{area="heap"}) * 100 > 90
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Elastic Heap Usage Too High (instance {{ $labels.instance }})"
+    description: "The heap usage is over 90% for 5m\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

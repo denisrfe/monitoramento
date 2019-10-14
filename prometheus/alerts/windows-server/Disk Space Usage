@@ -1,0 +1,8 @@
+- alert: DiskSpaceUsage
+  expr: 100.0 - 100 * ((wmi_logical_disk_free_bytes{} / 1024 / 1024 ) / (wmi_logical_disk_size_bytes{}  / 1024 / 1024)) > 80
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Disk Space Usage (instance {{ $labels.instance }})"
+    description: "Disk Space on Drive is used more than 80%\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

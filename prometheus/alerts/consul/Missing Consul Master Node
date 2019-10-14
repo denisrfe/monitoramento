@@ -1,0 +1,8 @@
+- alert: MissingConsulMasterNode
+  expr: consul_raft_peers < number_of_consul_master
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Missing Consul master node (instance {{ $labels.instance }})"
+    description: "Numbers of consul raft peers less then expected <https://example.ru/ui/{{ $labels.dc }}/services/consul|Consul masters>\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

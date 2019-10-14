@@ -1,0 +1,8 @@
+- alert: BlackboxSlowRequests
+  expr: probe_http_duration_seconds > 2
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "Blackbox slow requests (instance {{ $labels.instance }})"
+    description: "Blackbox request took more than 2s\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

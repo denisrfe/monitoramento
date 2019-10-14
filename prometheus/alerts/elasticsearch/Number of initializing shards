@@ -1,0 +1,8 @@
+- alert: NumberOfInitializingShards
+  expr: elasticsearch_cluster_health_initializing_shards > 0
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Number of initializing shards (instance {{ $labels.instance }})"
+    description: "Number of initializing shards for 10 min\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

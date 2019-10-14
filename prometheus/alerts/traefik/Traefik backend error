@@ -1,0 +1,8 @@
+- alert: TraefikBackendErrors
+  expr: sum(rate(traefik_backend_requests_total{code=~"5.*"}[5m])) by (backend) / sum(rate(traefik_backend_requests_total[5m])) by (backend) > 0.1
+  for: 5m
+  labels:
+    severity: critical
+  annotations:
+    summary: "Traefik backend errors (instance {{ $labels.instance }})"
+    description: "Traefik backend error rate is above 10%\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

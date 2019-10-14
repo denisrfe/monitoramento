@@ -1,0 +1,8 @@
+- alert: NoLeader
+  expr: etcd_server_has_leader == 0
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "No Leader (instance {{ $labels.instance }})"
+    description: "Etcd cluster have no leader\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

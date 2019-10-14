@@ -1,0 +1,8 @@
+- alert: CollectorError
+  expr: wmi_exporter_collector_success == 0
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Collector Error (instance {{ $labels.instance }})"
+    description: "Collector {{ $labels.collector }} was not successful\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

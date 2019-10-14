@@ -1,0 +1,8 @@
+- alert: ElasticClusterRed
+  expr: elasticsearch_cluster_health_status{color="red"} == 1
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Elastic Cluster Red (instance {{ $labels.instance }})"
+    description: "Elastic Cluster Red status\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

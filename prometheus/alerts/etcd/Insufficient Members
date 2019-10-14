@@ -1,0 +1,8 @@
+- alert: InsufficientMembers
+  expr: count(etcd_server_id) > (count(etcd_server_id) / 2 - 1)
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Insufficient Members (instance {{ $labels.instance }})"
+    description: "Etcd cluster should have an odd number of members\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

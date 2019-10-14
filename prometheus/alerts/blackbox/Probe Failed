@@ -1,0 +1,8 @@
+- alert: ProbeFailed
+  expr: probe_success == 0
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Probe failed (instance {{ $labels.instance }})"
+    description: "Probe failed\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

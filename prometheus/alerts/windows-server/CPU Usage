@@ -1,0 +1,8 @@
+- alert: CpuUsage
+  expr: 100 - (avg by (instance) (irate(wmi_cpu_time_total{mode="idle"}[2m])) * 100) > 80
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "CPU Usage (instance {{ $labels.instance }})"
+    description: "CPU Usage is more than 80%\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

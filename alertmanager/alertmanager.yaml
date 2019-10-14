@@ -1,0 +1,36 @@
+route:
+  group_wait: 10s
+  group_interval: 1m
+  repeat_interval: 30m 
+  receiver: 'telegram'
+  routes:
+    - receiver: 'telegram'
+
+receivers:
+  - name: 'telegram'
+    webhook_configs:
+            - url: http://alertmanager-telegram:9119/alert
+
+#  receiver: "slack"
+#  routes:
+#    - receiver: "slack"
+#      group_wait: 10s
+#      match_re:
+#        severity: error|warning
+#      continue: true
+#    - name: "slack"
+#      slack_configs:
+#        - channel: 'monitoring'
+#          api_url: 'https://hooks.slack.com/services/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'
+#          send_resolved: true
+#          color: '{{ if eq .Status "firing" }}danger{{ else }}good{{ end }}'
+#          title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] Monitoring Event Notification'
+#          text: >-
+#            {{ range .Alerts }}
+#               *Alert:* {{ .Annotations.summary }} - `{{ .Labels.severity }}`
+#              *Description:* {{ .Annotations.description }}
+#              *Graph:* <{{ .GeneratorURL }}|:chart_with_upwards_trend:> *Runbook:* <{{ .Annotations.runbook }}|:spiral_note_pad:>
+#              *Details:*
+#              {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+#              {{ end }}
+#            {{ end }}

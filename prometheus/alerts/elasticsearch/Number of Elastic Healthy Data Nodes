@@ -1,0 +1,8 @@
+- alert: NumberOfElasticHealthyDataNodes
+  expr: elasticsearch_cluster_health_number_of_data_nodes < number_of_data_nodes
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Number of Elastic Healthy Data Nodes (instance {{ $labels.instance }})"
+    description: "Number Healthy Data Nodes less then number_of_data_nodes\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

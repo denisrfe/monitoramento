@@ -1,0 +1,8 @@
+- alert: GrpcRequestsSlow
+  expr: histogram_quantile(0.99, sum(rate(grpc_server_handling_seconds_bucket{grpc_type="unary"}[5m])) by (grpc_service, grpc_method, le)) > 0.15
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "GRPC requests slow (instance {{ $labels.instance }})"
+    description: "GRPC requests slowing down, 99th percentil is over 0.15s for 5 minutes\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

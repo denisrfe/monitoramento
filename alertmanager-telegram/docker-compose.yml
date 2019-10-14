@@ -1,0 +1,12 @@
+version: '2'
+services:
+  alertmanager-telegram:
+    image: denisrfe/alertmanager-telegram:v1
+    restart: always
+    ports:
+    - 9119:9119
+    environment:
+    - TELEGRAM_TOKEN=848436524:AAGUuF99pOk4A_XpQoFfSW9adSjqLVGfZ3M
+    - TELEGRAM_CHAT_ID=-354006120
+    # Create a bot with @botfather
+    # Take chat id on https://api.telegram.org/bot<TELEGRAM_TOKEN>/getUpdates

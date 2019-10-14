@@ -1,0 +1,8 @@
+- alert: SslCertificateHasExpired
+  expr: probe_ssl_earliest_cert_expiry - time()  <= 0
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "SSL certificate has expired (instance {{ $labels.instance }})"
+    description: "SSL certificate has expired already\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  alertmanager:
+    image: prom/alertmanager
+    links: 
+    - alertmanager-telegram:alertmanager-telegram
+    volumes:
+    - /var/lib/docker/volumes/alertmanager:/etc/alertmanager/
+    command:
+    - '--config.file=/etc/alertmanager/alertmanager.yml'
+    ports:
+    - '9093:9093'

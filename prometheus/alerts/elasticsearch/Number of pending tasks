@@ -1,0 +1,8 @@
+- alert: NumberOfPendingTasks
+  expr: elasticsearch_cluster_health_number_of_pending_tasks > 0
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "Number of pending tasks (instance {{ $labels.instance }})"
+    description: "Number of pending tasks for 10 min. Cluster works slowly.\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

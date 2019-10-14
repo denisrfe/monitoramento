@@ -1,0 +1,8 @@
+- alert: HighBandwithUsage1gib
+  expr: irate(junos_interface_transmit_bytes[1m]) * 8 > 1e+9 * 0.90
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "High Bandwith Usage 1GiB (instance {{ $labels.instance }})"
+    description: "Interface is highly saturated for at least 1 min. (> 0.90GiB/s)\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

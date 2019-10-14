@@ -1,0 +1,8 @@
+- alert: HighNumberOfFailedGrpcRequests
+  expr: sum(rate(grpc_server_handled_total{grpc_code!="OK"}[5m])) BY (grpc_service, grpc_method) / sum(rate(grpc_server_handled_total[5m])) BY (grpc_service, grpc_method) > 0.01
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "High number of failed GRPC requests (instance {{ $labels.instance }})"
+    description: "More than 1% GRPC request failure detected in Etcd for 5 minutes\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

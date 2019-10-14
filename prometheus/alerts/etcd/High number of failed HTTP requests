@@ -1,0 +1,8 @@
+- alert: HighNumberOfFailedHttpRequests
+  expr: sum(rate(etcd_http_failed_total[5m])) BY (method) / sum(rate(etcd_http_received_total[5m])) BY (method) > 0.01
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "High number of failed HTTP requests (instance {{ $labels.instance }})"
+    description: "More than 1% HTTP failure detected in Etcd for 5 minutes\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"

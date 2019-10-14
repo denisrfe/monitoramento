@@ -1,0 +1,8 @@
+- alert: HighNumberOfLeaderChanges
+  expr: increase(etcd_server_leader_changes_seen_total[1h]) > 3
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "High number of leader changes (instance {{ $labels.instance }})"
+    description: "Etcd leader changed more than 3 times during last hour\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
