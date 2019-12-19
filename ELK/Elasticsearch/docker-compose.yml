@@ -1,0 +1,81 @@
+version: "2.2"
+services:
+    elasticsearch01:
+        user: 1000:1000
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+        container_name: elasticsearch01
+        restart: always
+        environment:
+            - node.name=elasticsearch01
+            - cluster.name=elasticsearch-cluster
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - discovery.seed_hosts=elasticsearch02
+            - cluster.initial_master_nodes=elasticsearch01,elasticsearch02
+            - node.max_local_storage_nodes=20
+        ulimits:
+            memlock:
+               soft: -1
+               hard: -1
+        volumes:
+            - /var/lib/docker/volumes/elasticsearch_data01:/usr/share/elasticsearch/data:rw
+        networks:
+            - elastic
+        ports:
+            - 9200:9200
+            - 9300:9300
+
+    elasticsearch02:
+        user: 1000:1000
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+        container_name: elasticsearch02
+        restart: always
+        environment:
+            - cluster.name=elasticsearch-cluster
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - "discovery.zen.ping.unicast.hosts=elasticsearch"
+            - node.max_local_storage_nodes=20
+        ulimits:
+            memlock:
+               soft: -1
+               hard: -1
+        volumes:
+            - /var/lib/docker/volumes/elasticsearch_data01:/usr/share/elasticsearch/data:rw
+        networks:
+            - elastic
+
+    logstash:
+        user: 1000:1000
+        image: docker.elastic.co/logstash/logstash:7.5.0
+        container_name: logstash
+        restart: always
+        environment:
+            - "XPACK.MONITORING.ELASTICSEARCH.HOSTS=elasticsearch:9200"
+        links: 
+            - elasticsearch01:elasticsearch
+        networks:
+            - elastic
+    
+    kibana:
+        user: 1000:1000
+        image: docker.elastic.co/kibana/kibana:7.5.0
+        container_name: kibana
+        restart: always
+        environment:
+            - "ELASTICSEARCH_URL=http://elasticsearch:9200"
+            - "XPACK_GRAPH_ENABLED=true"
+            - "XPACK_WATCHER_ENABLED=true"
+            - "XPACK_ML_ENABLED=true"
+            - "XPACK_MONITORING_ENABLED=true"
+            - "XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED"
+        links:
+            - elasticsearch01:elasticsearch
+        ports:
+            - 5601:5601
+        networks:
+            - elastic
+
+networks:
+  elastic:
+          driver: bridge
