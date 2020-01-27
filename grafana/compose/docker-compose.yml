@@ -1,27 +1,13 @@
-version: '2'
-volumes:
-  grafana-data:
-    external: true
-    driver: local
-services:
-  grafana:
-    image: jivagestaoempresarial/grafana:6.3.6
+grafana:
+    image: grafana/grafana:6.5.3
+    container_name: grafana
+    user: "472"
     volumes:
-    - grafana_data:/var/lib/grafana
-    tty: true
-    volumes_from:
-    - graf-db
-    ports:
-    - 3000:3000/tcp
-    user: '472'
-    labels:
-      io.rancher.sidekicks: graf-db
-  graf-db:
-    image: infinityworks/graf-db:11
-    network_mode: none
-    volumes:
-    - grafana-data:/var/lib/grafana/
-    tty: true
-    command:
-    - cat
-
+      - grafana_data:/var/lib/grafana:rw
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=true
+    restart: always
+    expose:
+      - 3000
