@@ -8,6 +8,13 @@ services:
         environment:
             - node.name=elasticsearch01
             - cluster.name=elasticsearch-cluster
+            - node.master=true
+            - node.data=true
+            - transport.host=localhost
+            - transport.tcp.port=9300
+            - http.port=9200
+            - network.host=0.0.0.0
+            - discovery.zen.minimum_master_nodes=2
             - bootstrap.memory_lock=true
             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
             - discovery.seed_hosts=elasticsearch02
@@ -18,7 +25,7 @@ services:
                soft: -1
                hard: -1
         volumes:
-            - /var/lib/docker/volumes/elasticsearch_data01:/usr/share/elasticsearch/data:rw
+            - elasticsearch_data01:/usr/share/elasticsearch/data:rw
         networks:
             - elastic
         ports:
@@ -33,6 +40,13 @@ services:
         environment:
             - cluster.name=elasticsearch-cluster
             - bootstrap.memory_lock=true
+            - node.master=true
+            - node.data=true
+            - transport.host=localhost
+            - transport.tcp.port=9300
+            - http.port=9200
+            - network.host=0.0.0.0
+            - discovery.zen.minimum_master_nodes=2            
             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
             - "discovery.zen.ping.unicast.hosts=elasticsearch"
             - node.max_local_storage_nodes=20
@@ -41,7 +55,7 @@ services:
                soft: -1
                hard: -1
         volumes:
-            - /var/lib/docker/volumes/elasticsearch_data01:/usr/share/elasticsearch/data:rw
+            - elasticsearch_data01:/usr/share/elasticsearch/data:rw
         networks:
             - elastic
 
@@ -64,11 +78,14 @@ services:
         restart: always
         environment:
             - "ELASTICSEARCH_URL=http://elasticsearch:9200"
-            - "XPACK_GRAPH_ENABLED=true"
-            - "XPACK_WATCHER_ENABLED=true"
-            - "XPACK_ML_ENABLED=true"
-            - "XPACK_MONITORING_ENABLED=true"
-            - "XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED"
+            - "SERVER_HOST=0.0.0.0"
+            - "elasticsearch.username=kibana"
+            - "elasticsearch.password=kibana"
+#            - "XPACK_GRAPH_ENABLED=true"
+#            - "XPACK_WATCHER_ENABLED=true"
+#            - "XPACK_ML_ENABLED=true"
+#            - "XPACK_MONITORING_ENABLED=true"
+#            - "XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED=false"
         links:
             - elasticsearch01:elasticsearch
         ports:
@@ -79,3 +96,9 @@ services:
 networks:
   elastic:
           driver: bridge
+
+volumes:
+  elasticsearch_data01:
+    driver: local
+  elasticsearch_data02:
+    driver: local    
