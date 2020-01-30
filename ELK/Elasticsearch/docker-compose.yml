@@ -1,12 +1,12 @@
 version: "2.2"
 services:
-    elasticsearch01:
+    elasticsearch:
         user: 1000:1000
         image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
-        container_name: elasticsearch01
+        container_name: elasticsearch
         restart: always
         environment:
-            - node.name=elasticsearch01
+            - node.name=elasticsearch
             - cluster.name=elasticsearch-cluster
             - node.master=true
             - node.data=true
@@ -17,48 +17,20 @@ services:
             - discovery.zen.minimum_master_nodes=2
             - bootstrap.memory_lock=true
             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-            - discovery.seed_hosts=elasticsearch02
-            - cluster.initial_master_nodes=elasticsearch01,elasticsearch02
+            - discovery.seed_hosts=elasticsearch
+            - cluster.initial_master_nodes=elasticsearch
             - node.max_local_storage_nodes=20
         ulimits:
             memlock:
                soft: -1
                hard: -1
         volumes:
-            - elasticsearch_data01:/usr/share/elasticsearch/data:rw
+            - elasticsearch_data:/usr/share/elasticsearch/data:rw
         networks:
             - elastic
         ports:
             - 9200:9200
             - 9300:9300
-
-    elasticsearch02:
-        user: 1000:1000
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
-        container_name: elasticsearch02
-        restart: always
-        environment:
-            - cluster.name=elasticsearch-cluster
-            - bootstrap.memory_lock=true
-            - node.master=true
-            - node.data=true
-            - transport.host=localhost
-            - transport.tcp.port=9300
-            - http.port=9200
-            - network.host=0.0.0.0
-            - discovery.zen.minimum_master_nodes=2            
-            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-            - "discovery.zen.ping.unicast.hosts=elasticsearch"
-            - node.max_local_storage_nodes=20
-        ulimits:
-            memlock:
-               soft: -1
-               hard: -1
-        volumes:
-            - elasticsearch_data01:/usr/share/elasticsearch/data:rw
-        networks:
-            - elastic
-
     logstash:
         user: 1000:1000
         image: docker.elastic.co/logstash/logstash:7.5.0
@@ -67,7 +39,7 @@ services:
         environment:
             - "XPACK.MONITORING.ELASTICSEARCH.HOSTS=elasticsearch:9200"
         links: 
-            - elasticsearch01:elasticsearch
+            - elasticsearch:elasticsearch
         networks:
             - elastic
     
@@ -77,28 +49,20 @@ services:
         container_name: kibana
         restart: always
         environment:
-            - "ELASTICSEARCH_URL=http://elasticsearch:9200"
-            - "SERVER_HOST=0.0.0.0"
-            - "elasticsearch.username=kibana"
-            - "elasticsearch.password=kibana"
-#            - "XPACK_GRAPH_ENABLED=true"
-#            - "XPACK_WATCHER_ENABLED=true"
-#            - "XPACK_ML_ENABLED=true"
-#            - "XPACK_MONITORING_ENABLED=true"
-#            - "XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED=false"
+            - SERVER_HOST=0.0.0.0
+            - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+            - elasticsearch.username=kibana
+            - elasticsearch.password=kibana
+            - XPACK_GRAPH_ENABLED=true
         links:
-            - elasticsearch01:elasticsearch
+            - elasticsearch:elasticsearch
         ports:
             - 5601:5601
         networks:
             - elastic
-
 networks:
   elastic:
           driver: bridge
-
 volumes:
-  elasticsearch_data01:
+  elasticsearch_data:
     driver: local
-  elasticsearch_data02:
-    driver: local    
