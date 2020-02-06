@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+  - hosts:
+    - prometheus.denisrfe.jivacloud.com.br
+  rules:
+  - host: prometheus.denisrfe.jivacloud.com.br
+    http:
+      paths:
+      - backend:
+          serviceName: prometheus-server
+          servicePort: 9090
